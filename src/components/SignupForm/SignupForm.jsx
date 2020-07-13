@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../services/userService';
+import './SignupForm.css';
 
 class SignupForm extends Component {
 
@@ -37,38 +38,28 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Sign Up</h3>
-        <form className="col s12" autocomplete="off" onSubmit={this.handleSubmit} >
+      <div className="SignupForm">
+        <h2>Sign Up</h2>
+        <form className="" autocomplete="off" onSubmit={this.handleSubmit} >
           <div className="row">
-            <div className="input-field col s12">
-              <input type="text" autocomplete="off" className="active" id="name" value={this.state.name} name="name" onChange={this.handleChange} />
-              <label htmlFor="name">Name</label>
-            </div>
+            <input type="text" autocomplete="off" className="active" id="name" value={this.state.name} name="name" onChange={this.handleChange} />
+            <label htmlFor="name">Name</label>
           </div>
           <div className="row">
-            <div className="input-field col s12">
-              <input type="text" autocomplete="off" className="active" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
-              <label htmlFor="email">Email</label>
-            </div>
+            <input type="text" autocomplete="off" className="active" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
+            <label htmlFor="email">Email</label>
           </div>
           <div className="row">
-            <div className="input-field col s12">
-              <input type="password" autocomplete="off" className="active" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
-              <label htmlFor="password">Password</label>
-            </div>
+            <input type="password" autocomplete="off" className="active" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
+            <label htmlFor="password">Password</label>
           </div>
           <div className="row">
-            <div className="input-field col s12">
-              <input type="password" autocomplete="off" className="active" id="confirm" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
-              <label htmlFor="confirm">Confirm Password</label>
-            </div>
+            <input type="password" autocomplete="off" className="active" id="confirm" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+            <label htmlFor="confirm">Confirm Password</label>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn green" disabled={this.isFormInvalid()}>Sign Up<i class="material-icons right">person_add</i></button>&nbsp;&nbsp;
-              <Link className="btn red" to='/'>Cancel<i class="material-icons right">cancel</i></Link>
-            </div>
+          <div className="buttons">
+            <button id="signup" disabled={this.isFormInvalid()}>Sign Up</button>
+            <Link id="cancel" to='/'>Cancel</Link>
           </div>
         </form>
       </div>

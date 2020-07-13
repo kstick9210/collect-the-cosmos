@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import './LoginPage.css';
+import './LoginPage.css';
 import userService from '../../services/userService';
 
 class LoginPage extends Component {
@@ -33,27 +33,19 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-        <h3>Log In</h3>
+        <h3>Log In</h3> 
         <form className="col s12" autocomplete="off" onSubmit={this.handleSubmit} >
           <div className="row">
-            <div className="input-field col s12">
-              <input type="text" autocomplete="off" id="email" className="active" value={this.state.email} name="email" onChange={this.handleChange} />
-              <label htmlFor="email">Email</label>
-
-            </div>
+            <input type="text" autocomplete="off" id="email" className="active" value={this.state.email} name="email" onChange={this.handleChange} />
+            <label htmlFor="email">Email</label>
           </div>
           <div className="row">
-            <div className="input-field col s12">
-              <input type="password" autocomplete="off" className="active" id="password" value={this.state.pw} name="pw" onChange={this.handleChange} />
-              <label htmlFor="password">Password</label>
-
-            </div>
+            <input type="password" autocomplete="off" className="active" id="password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+            <label htmlFor="password">Password</label>
           </div>
-          <div className="row">
-            <div className="col s12">
-              <button className="btn green">Log In<i class="material-icons right">arrow_forward</i></button>&nbsp;&nbsp;&nbsp;
-              <Link className="btn red" to='/'>Cancel<i class="material-icons right">cancel</i></Link>
-            </div>
+          <div className="buttons">
+              <button id="login">Log In</button>
+              <Link id="cancel" to='/'>Cancel</Link>
           </div>
         </form>
       </div>

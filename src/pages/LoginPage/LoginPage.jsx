@@ -33,7 +33,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-        <h3>Log In</h3> 
+        <h2>Log In</h2> 
         <form className="col s12" autocomplete="off" onSubmit={this.handleSubmit} >
           <div className="row">
             <input type="text" autocomplete="off" id="email" className="active" value={this.state.email} name="email" onChange={this.handleChange} />

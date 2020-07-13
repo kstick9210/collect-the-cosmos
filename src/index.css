@@ -3,6 +3,10 @@
 body {
   font-family: 'MuseoModerno', cursive;
   margin: 0;
+  background-image: url("./images/Nasty\ Nebula\ Hubble.jpg");
+  background-size: stretch;
+  background-repeat: no-repeat;
+  background-position: top;
   background-color: rgb(53, 64, 75);
 }
 

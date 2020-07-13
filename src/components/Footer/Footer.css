@@ -1,0 +1,25 @@
+footer {
+    border-top: 1px gray dashed;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding: 5px 15px;
+    font-size: small;
+}
+
+.gh {
+    height: 17px;
+}
+
+#disclaim {
+    width: 50vw;
+    text-align: end;
+}
+
+@media only screen and (min-width: 768px) {
+    footer { font-size: initial; }
+
+    .gh { height: 20px; }
+
+    #disclaim { width: auto; }
+}

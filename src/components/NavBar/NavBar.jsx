@@ -1,15 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = ({ user, handleLogout }) => {
     let nav = user ?
     <>
         <nav>
-            <div className="nav-wrapper">
-                <h1>Collect the Cosmos</h1>
-                <ul className="right">
-                    <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
-                    <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
+            <div className="nav-wrapper"> 
+                <h1><Link to='/'>Collect the Cosmos</Link></h1>
+                <ul>
+                    <li><a href=" ">Welcome, {user.name}</a></li>
+                    <li><a href=" " onClick={handleLogout}>Log Out</a></li>
                 </ul>
             </div>
         </nav>
@@ -18,10 +19,10 @@ const NavBar = ({ user, handleLogout }) => {
     <>
         <nav>
             <div className="nav-wrapper">
-                <h1>Collect the Cosmos</h1>
-                <ul className="right">
-                    <li><a href="/login" className="nav-link">Log In</a></li>
-                    <li><a href="/signup" className="nav-link">Sign Up</a></li>
+                <h1><Link to='/'>Collect the Cosmos</Link></h1>
+                <ul>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
                 </ul>
             </div>
         </nav>

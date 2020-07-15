@@ -1,0 +1,43 @@
+.SearchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 5vh;
+}
+
+.SearchPage > form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.query {
+    font-family: 'MuseoModerno', cursive;
+    font-weight: 900;
+}
+
+.search-submit {
+    align-self: center;
+    font-size: 18px;
+    font-family: 'MuseoModerno', cursive;
+    background-color: rgb(171, 168, 157);
+    border: none;
+    margin-top: 10px;
+}
+
+.search-submit:hover { 
+    background-color: rgb(57, 117, 174);
+    color: white;
+}
+
+/* .search-suggest {
+    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+} */
+
+@media only screen and (min-width: 768px) {
+    .SearchPage > form { width: 25vw; }
+}

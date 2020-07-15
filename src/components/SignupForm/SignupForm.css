@@ -30,3 +30,9 @@
     padding: 1px 5px;
     background-color: rgba(189, 37, 32, .74);
 }
+
+#cancel:hover {
+    color: rgba(189, 37, 32, .74);
+    background-color: white;
+    font-weight: 900;
+}

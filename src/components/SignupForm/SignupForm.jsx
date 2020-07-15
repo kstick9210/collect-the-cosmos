@@ -40,21 +40,21 @@ class SignupForm extends Component {
     return (
       <div className="SignupForm">
         <h2>Sign Up</h2>
-        <form className="" autocomplete="off" onSubmit={this.handleSubmit} >
+        <form className="" autoComplete="off" onSubmit={this.handleSubmit} >
           <div className="row">
-            <input type="text" autocomplete="off" className="active" id="name" value={this.state.name} name="name" onChange={this.handleChange} />
+            <input type="text" autoComplete="off" className="active" id="name" value={this.state.name} name="name" onChange={this.handleChange} />
             <label htmlFor="name">Name</label>
           </div>
           <div className="row">
-            <input type="text" autocomplete="off" className="active" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
+            <input type="text" autoComplete="off" className="active" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
             <label htmlFor="email">Email</label>
           </div>
           <div className="row">
-            <input type="password" autocomplete="off" className="active" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
+            <input type="password" autoComplete="off" className="active" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
             <label htmlFor="password">Password</label>
           </div>
           <div className="row">
-            <input type="password" autocomplete="off" className="active" id="confirm" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+            <input type="password" autoComplete="off" className="active" id="confirm" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             <label htmlFor="confirm">Confirm Password</label>
           </div>
           <div className="buttons">

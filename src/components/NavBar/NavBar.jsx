@@ -9,8 +9,9 @@ const NavBar = ({ user, handleLogout }) => {
             <div className="nav-wrapper"> 
                 <h1><Link to='/'>Collect the Cosmos</Link></h1>
                 <ul>
-                    <li><a href=" ">Welcome, {user.name}</a></li>
-                    <li><a href=" " onClick={handleLogout}>Log Out</a></li>
+                    <li><Link to=' '>{user.name}'s Collections</Link></li>
+                    <li><Link to='/search'>Search</Link></li>
+                    <li><Link to='' onClick={handleLogout}>Log Out</Link></li>
                 </ul>
             </div>
         </nav>
@@ -21,8 +22,8 @@ const NavBar = ({ user, handleLogout }) => {
             <div className="nav-wrapper">
                 <h1><Link to='/'>Collect the Cosmos</Link></h1>
                 <ul>
-                    <li><a href="/login">Log In</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
+                    <li><Link to='/login'>Log In</Link></li>
+                    <li><Link to='/signup'>Sign Up</Link></li>
                 </ul>
             </div>
         </nav>

@@ -1,0 +1,12 @@
+.SearchResults {
+    background-color: rgba(145, 145, 145, 0.3);
+}
+
+@media only screen and (min-width: 768px) {
+    .SearchResults {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-end;
+        justify-content: space-evenly;
+    }
+}

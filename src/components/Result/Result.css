@@ -1,0 +1,34 @@
+.Result {
+    /* margin-bottom: 20px; */
+}
+
+.Result-thumb {
+    width: 200px;
+    margin: 20px;
+    align-self: baseline;
+}
+
+.Result-thumb:hover {
+    transform: scale(1.5);
+}
+
+.Result-title {
+    /* display: none; */
+    font-family: Nunito;
+    position: absolute;
+    width: 200px;
+    font-size: 15px;
+    z-index: 1;
+    margin-top: -25px;
+    margin-left: 20px;
+    background-color: rgba(145, 145, 145, 0.3);
+}
+
+@media only screen and (min-width: 768px) {
+
+    .Result-thumb { width: 100px; }
+
+    .Result-thumb:hover { transform: scale(2.75); }
+
+    .Result-title { width: 100px; }
+}

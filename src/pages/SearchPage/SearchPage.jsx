@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SearchPage.css';
+import SearchResults from '../../components/SearchResults/SearchResults';
 
 class SearchPage extends Component {
     state = {
@@ -30,6 +31,7 @@ class SearchPage extends Component {
                 <h3>Enter keyword to search for photos</h3>
                 <form
                     ref={this.formRef}
+                    onSubmit={this.handleSubmit}
                 >
                     <input 
                         name="query" 
@@ -48,7 +50,14 @@ class SearchPage extends Component {
                         Search
                     </button>
                 </form><br></br>
-                <h4 className="search-suggest">Try searching for "nebula"</h4>
+                {this.props.searchResults.length ? 
+                    <SearchResults 
+                        query={this.state.formData.query}
+                        searchResults={this.props.searchResults[0]}
+                    />
+                    :
+                    <h4 className="search-suggest">Try searching for "nebula"</h4>
+                }
             </div>
         )
     }

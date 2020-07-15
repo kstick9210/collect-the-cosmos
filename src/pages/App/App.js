@@ -25,11 +25,12 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
-  handleSearch = async query => {
-    const searchResults = await PhotosAPI.search(query);
+  handleSearch = async formData => {
+    const searchResults = await PhotosAPI.search(formData);
     this.setState(state => ({
-      searchResults: [...state.searchResults, searchResults]
-    }), () => this.props.history.push(''));
+      searchResults: [searchResults.collection.items] 
+      // overwriting array rather than merging - only want current search results when a new search is conducted
+    }))
   }
 
   render () {
@@ -60,6 +61,7 @@ class App extends Component {
               <SearchPage 
                 history={history}
                 handleSearch={this.handleSearch}
+                searchResults={this.state.searchResults}
               />
             :
               <Redirect to='/login' />

@@ -1,0 +1,39 @@
+.CreateCollectionPage {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    padding: 5vh;
+}
+
+.CreateCollectionPage > form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.collectionName {
+    font-family: 'MuseoModerno', cursive;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.create-submit {
+    align-self: center;
+    font-size: 18px;
+    font-family: 'MuseoModerno', cursive;
+    background-color: rgb(171, 168, 157);
+    border: none;
+    margin-top: 10px;
+}
+
+.create-submit:hover { 
+    background-color: rgb(57, 117, 174);
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    .CreateCollectionPage > form { width: 25vw; }
+}

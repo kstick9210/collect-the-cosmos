@@ -2,7 +2,7 @@ const router = require('express').Router();
 const nasaPhotosAPICtrl = require('../controllers/nasaphotos-api');
 
 router.use(require('../config/auth'));
-// router.post('/search', checkAuth, nasaPhotosAPICtrl.search);
+router.post('/', checkAuth, nasaPhotosAPICtrl.search);
 
 function checkAuth(req, res, next) {
     if (req.user) return next();

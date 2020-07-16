@@ -1,12 +1,12 @@
 import tokenService from '../services/tokenService';
-const BASE_URL = 'https://images-api.nasa.gov/';
+const BASE_URL = '/api/nasaphotos';
 
 export function search(formData) {
-    return fetch(`${BASE_URL}search?q=${formData.query}&media_type=image`, {
-        headers: {
-            'Authorization': 'Bearer ' + tokenService.getToken(),
-            'content-type': 'application/json'
-        }
+    return fetch(BASE_URL, {
+        method: 'POST',
+        headers: {'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()},
+        body: JSON.stringify(formData)
     }, {mode: "cors"})
     .then(res => res.json())
 }

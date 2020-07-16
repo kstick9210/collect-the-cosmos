@@ -7,6 +7,7 @@ require('dotenv').config();
 require('./config/database');
 
 const userRouter = require('./routes/users');
+const nasaPhotosRouter = require('./routes/nasaphotos-api');
 const cors = require('cors');
 
 app.use(cors());
@@ -14,6 +15,7 @@ app.use(logger('dev'));
 app.use(express.json());
 
 app.use('/api/users', userRouter);
+app.use('/api/nasaphotos', nasaPhotosRouter);
 
 app.listen(port, () => {
     console.log(`Express is listening on port ${port}.`);

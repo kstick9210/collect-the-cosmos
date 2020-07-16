@@ -11,6 +11,8 @@ const SearchResults = (props) => {
                     <Result 
                         key={idx} 
                         result={result}
+                        idx={idx}
+                        handleGetPhotoDetails={props.handleGetPhotoDetails}
                     />
                 )}
             </div>

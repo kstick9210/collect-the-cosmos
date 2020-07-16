@@ -1,10 +1,9 @@
 .Result {
-    /* margin-bottom: 20px; */
+    margin: 20px;
 }
 
 .Result-thumb {
     width: 200px;
-    margin: 20px;
     align-self: baseline;
 }
 
@@ -14,7 +13,7 @@
 
 .Result-title {
     /* display: none; */
-    font-family: Nunito;
+    font-family: 'Nunito', sans-serif;
     position: absolute;
     width: 200px;
     font-size: 15px;
@@ -25,10 +24,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-
-    .Result-thumb { width: 100px; }
+    .Result-thumb, .Result-title { width: 150px; }
 
     .Result-thumb:hover { transform: scale(2.75); }
-
-    .Result-title { width: 100px; }
 }

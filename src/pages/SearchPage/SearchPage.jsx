@@ -52,6 +52,7 @@ class SearchPage extends Component {
                 </form><br></br>
                 {this.props.searchResults.length ? 
                     <SearchResults 
+                        handleGetPhotoDetails={this.props.handleGetPhotoDetails}
                         query={this.state.formData.query}
                         searchResults={this.props.searchResults[0]}
                     />

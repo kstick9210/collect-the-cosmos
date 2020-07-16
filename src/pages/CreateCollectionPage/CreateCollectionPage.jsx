@@ -5,7 +5,7 @@ class CreateCollectionPage extends Component {
     state = {
         invalidForm: true,
         formData: {
-            collectionName: ''
+            name: ''
         }
     };
 
@@ -21,6 +21,7 @@ class CreateCollectionPage extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        this.props.handleCreateCollection(this.state.formData);
     }
 
     render() {
@@ -32,7 +33,7 @@ class CreateCollectionPage extends Component {
                     onSubmit={this.handleSubmit}
                 >
                     <input
-                        name="collectionName"
+                        name="name"
                         className="collectionName"
                         type="text"
                         value={this.state.formData.collectionName}

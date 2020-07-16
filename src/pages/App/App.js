@@ -3,6 +3,7 @@ import {Route, Redirect} from 'react-router-dom';
 import './App.css';
 import userService from '../../services/userService';
 import * as PhotosAPI from '../../services/nasaphotos-api';
+import * as CollectionsAPI from '../../services/collections-api';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import LoginPage from '../LoginPage/LoginPage';
@@ -16,7 +17,8 @@ class App extends Component {
   state = {
     user: userService.getUser(),
     searchResults: [],
-    photoDetails: ''
+    photoDetails: '',
+    userCollections: []
   }
 
   handleLogout = () => {
@@ -28,6 +30,8 @@ class App extends Component {
     this.setState({user: userService.getUser()});
   }
 
+  //handleGetUserCollections
+
   handleSearch = async formData => {
     const searchResults = await PhotosAPI.search(formData);
     this.setState({ searchResults: [searchResults.collection.items] });
@@ -36,6 +40,13 @@ class App extends Component {
 
   handleGetPhotoDetails = (idx) => {
     this.setState({ photoDetails: this.state.searchResults[0][idx]});
+  }
+
+  handleCreateCollection = async newCollectionData => {
+    const newCollection = await CollectionsAPI.create(newCollectionData);
+    this.setState(state => ({
+      userCollections: [...state.userCollections, newCollection]
+    }), () => this.props.history.push('/'));
   }
 
   render () {
@@ -88,10 +99,11 @@ class App extends Component {
               <Redirect to='/login' />
           }>
           </Route>
-          <Route exact path='/collections' render={({ history }) =>
+          <Route exact path='/collections/new' render={({ history }) =>
             userService.getUser() ?
               <CreateCollectionPage 
                 history={history}
+                handleCreateCollection={this.handleCreateCollection}
               />
             :
             <Redirect to='/login' />

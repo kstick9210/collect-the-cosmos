@@ -1,13 +1,13 @@
 import tokenService from '../services/tokenService';
-const BASE_URL = '/api/nasaphotos';
+const BASE_URL = '/api/collections';
 
-export function search(formData) {
+export function create(collection) {
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {'content-type': 'application/json',
             'Authorization': 'Bearer ' + tokenService.getToken()
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(collection)
     }, {mode: "cors"})
-    .then(res => res.json())
+    .then(res => res.json());
 }

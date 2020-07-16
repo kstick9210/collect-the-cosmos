@@ -13,7 +13,7 @@ const Result = (props) => {
                 <img 
                     src={props.result.links[0].href}
                     className="Result-thumb"
-                    alt=""
+                    alt={props.result.data[0].title}
                 ></img>
                 {/* <p className="Result-title">{props.result.data[0].title}</p> */}
             </Link>

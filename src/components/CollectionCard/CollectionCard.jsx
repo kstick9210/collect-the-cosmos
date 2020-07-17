@@ -3,22 +3,28 @@ import {Link} from 'react-router-dom';
 import './CollectionCard.css';
 
 const CollectionCard = (props) => {
-    return (
+    let card = props.collection.photos.length ?
+        
+        
+        <Link
+            to='/'
+            className="CollectionCard"
+            style={{ background: `url(${props.collection.photos[0].links[0].href}) center` }}
+        >
+            <p className="CollectionCard-Title">{props.collection.name}</p>
+        </Link>
+        
+    :
         <div className="CollectionCard">
-            <Link to='/'>
-                {props.collection.photos.length ?
-                    <img
-                        src=''
-                        className="CollectionCard-Image"
-                        alt=''
-                    >
-                    </img>
-                :
-                    <p className="no-photos">No photos added yet</p>
-                }
-                <p className="CollectionCard-Title">{props.collection.name}</p>
-            </Link>
+            <p className="no-photos">No photos added yet</p>
+            <p className="CollectionCard-Title">{props.collection.name}</p>
         </div>
+
+
+    return (
+       <>
+        {card}
+       </>
     )
 }
 

@@ -3,25 +3,20 @@ import './AddToCollectionForm.css';
 
 class AddToCollectionForm extends Component {
     state = {
-        invalidForm: true,
         formData: {
-            name: '',
-            photo: ''
+            photos: this.props.photoDetails,
+            id: ''
         }
     }
 
-    formRef = React.createRef();
-
     handleChange = e => {
         const formData = {...this.state.formData, [e.target.name]: e.target.value};
-        this.setState({
-            formData,
-            invalidForm: !this.formRef.current.checkValidity()
-        });
+        this.setState({ formData });
     }
 
     handleSubmit = e => {
         e.preventDefault();
+        this.props.handleAddPhotoToCollection(this.state.formData);
     }
 
 
@@ -31,22 +26,18 @@ class AddToCollectionForm extends Component {
                 <p>Add this photo to your collection:</p>
                 <form
                     className="add-form"
+                    onSubmit={this.handleSubmit}
                 >
-                    <input
-                        type="hidden"
-                        name="photo"
-                        value={this.props.photoDetails}
-                    ></input>
-                    <select name="name">
-                    {this.props.userCollections.map((collection, idx) =>
-                        <option 
-                            key={idx}
-                            value={collection.name}
-                            onChange={this.handleChange}
-                        >
-                            {collection.name}
-                        </option>
-                    )}
+                    <select name="id" onChange={this.handleChange} >
+                        <option value='Please Select' default>Please Select</option>
+                        {this.props.userCollections.map((collection, idx) =>
+                            <option 
+                                key={idx}
+                                value={collection._id}
+                            >
+                                {collection.name}
+                            </option>
+                        )}
                     </select>
                     &nbsp;&nbsp;
                     <button

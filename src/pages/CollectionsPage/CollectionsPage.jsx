@@ -9,7 +9,7 @@ const CollectionsPage = (props) => {
         <div className="CollectionsPage">
             <h2>{props.user.name}'s Collections</h2>
             <Link className="add" to='/collections/new'>Create a New Collection</Link><br></br>
-            <div className="collections-wrapper">
+            <div className="collections-wrapper"> 
                 {props.userCollections.map((collection, idx) =>
                     <CollectionCard 
                         key={idx}
@@ -21,7 +21,7 @@ const CollectionsPage = (props) => {
     :
         <div className="CollectionsPage">
             <h2>You have not created any collections yet</h2>
-            <h3><Link to='/collections/new'>Create a New Collection</Link></h3>
+            <h3><Link className="add" to='/collections/new'>Create a New Collection</Link></h3>
         </div>
 
     return (

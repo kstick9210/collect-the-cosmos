@@ -4,13 +4,15 @@ import './ImageDetailPage.css';
 import AddToCollectionForm from '../../components/AddToCollectionForm/AddToCollectionForm';
 
 const ImageDetailPage = (props) => {
-    return (
+    let detail = props.photoDetails ?
+
         <div className="ImageDetailPage">
             <h2>{props.photoDetails.data[0].title}</h2>
             {props.userCollections.length ?
                 <AddToCollectionForm 
                     photoDetails={props.photoDetails}
                     userCollections={props.userCollections}
+                    handleAddPhotoToCollection={props.handleAddPhotoToCollection}
                 />
             :
                 <h3>You have not created any collections yet<br></br><br></br>
@@ -27,6 +29,16 @@ const ImageDetailPage = (props) => {
             <Link to='/search' className="return">Return to Search Results</Link>
             <br></br><br></br>
         </div>
+    :
+        <div className="ImageDetailPage">
+            <h3>No details to display</h3>
+            <Link to='/search' className="return">Return to Search</Link>
+        </div>
+
+    return (
+        <>
+            {detail}
+        </>
     )
 }
 

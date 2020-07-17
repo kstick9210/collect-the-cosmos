@@ -54,10 +54,16 @@ class App extends Component {
     }), () => this.props.history.push('/collections'));
   }
 
-  // handleAddPhotoToCollection = async photoData => {
-  //   const newPhoto =  await CollectionsAPI.update(photoData);
-
-  // }
+  handleAddPhotoToCollection = async updatedCollectionData => {
+    const updatedCollection =  await CollectionsAPI.update(updatedCollectionData);
+    const newCollectionsArray = this.state.userCollections.map(collection =>
+      collection._id === updatedCollection._id ? updatedCollection : collection
+    );
+    this.setState(
+      {collections: newCollectionsArray}
+      //() => this.props.history.push('/search')
+    );
+  }
 
   async componentDidMount() {
     // retrieve user's collections and set state if user is already authenticated when page loads
@@ -112,6 +118,7 @@ class App extends Component {
                 history={history}
                 photoDetails={this.state.photoDetails}
                 userCollections={this.state.userCollections}
+                handleAddPhotoToCollection={this.handleAddPhotoToCollection}
               />
             :
               <Redirect to='/login' />

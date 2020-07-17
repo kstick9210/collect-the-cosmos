@@ -10,7 +10,7 @@ const collectionSchema = new Schema({
         type: String,
         required: true
     },
-    photos: [String]
+    photos: [{}]
 }, {timestamps: true})
 
 module.exports = mongoose.model('Collection', collectionSchema);

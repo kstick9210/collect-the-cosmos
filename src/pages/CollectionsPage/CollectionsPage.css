@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+.add {
+    background-color: rgb(51, 90, 140);
+    padding: 0 4px;
+    border: 3px solid rgb(25, 73, 135);
+}
+
 @media only screen and (min-width: 768px) {
     .collections-wrapper { 
         display: flex; 

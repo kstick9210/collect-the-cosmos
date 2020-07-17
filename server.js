@@ -14,10 +14,15 @@ const cors = require('cors');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/users', userRouter);
 app.use('/api/nasaphotos', nasaPhotosRouter);
 app.use('/api/collections', collectionsRouter);
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Express is listening on port ${port}.`);

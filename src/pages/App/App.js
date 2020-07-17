@@ -12,6 +12,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import SearchPage from '../SearchPage/SearchPage';
 import ImageDetailPage from '../ImageDetailPage/ImageDetailPage';
 import CreateCollectionPage from '../CreateCollectionPage/CreateCollectionPage';
+import CollectionsPage from '../CollectionsPage/CollectionsPage';
 
 class App extends Component {
   state = {
@@ -23,30 +24,46 @@ class App extends Component {
 
   handleLogout = () => {
     userService.logout();
-    this.setState({ user: null, searchResults: [], photoDetails: '' });
+    this.setState({ user: null, searchResults: [], photoDetails: '', userCollections: [] });
   }
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
+    this.handleGetUserCollections(this.state.user);
   }
 
-  //handleGetUserCollections
-
+  handleGetUserCollections = async user => {
+    const userCollections = await CollectionsAPI.index();
+    this.setState({userCollections})
+  }
+  
   handleSearch = async formData => {
     const searchResults = await PhotosAPI.search(formData);
     this.setState({ searchResults: [searchResults.collection.items] });
     // overwriting array rather than merging - only want current search results when a new search is conducted
   }
-
+  
   handleGetPhotoDetails = (idx) => {
     this.setState({ photoDetails: this.state.searchResults[0][idx]});
   }
-
+  
   handleCreateCollection = async newCollectionData => {
     const newCollection = await CollectionsAPI.create(newCollectionData);
     this.setState(state => ({
       userCollections: [...state.userCollections, newCollection]
-    }), () => this.props.history.push('/'));
+    }), () => this.props.history.push('/collections'));
+  }
+
+  // handleAddPhotoToCollection = async photoData => {
+  //   const newPhoto =  await CollectionsAPI.update(photoData);
+
+  // }
+
+  async componentDidMount() {
+    // retrieve user's collections and set state if user is already authenticated when page loads
+    if (userService.getUser()) {
+      this.handleGetUserCollections(this.state.user);
+    }
   }
 
   render () {
@@ -94,6 +111,7 @@ class App extends Component {
               <ImageDetailPage 
                 history={history}
                 photoDetails={this.state.photoDetails}
+                userCollections={this.state.userCollections}
               />
             :
               <Redirect to='/login' />
@@ -104,6 +122,18 @@ class App extends Component {
               <CreateCollectionPage 
                 history={history}
                 handleCreateCollection={this.handleCreateCollection}
+              />
+            :
+            <Redirect to='/login' />
+          }
+          >
+          </Route>
+          <Route exact path='/collections' render={({ history }) =>
+            userService.getUser() ?
+              <CollectionsPage 
+                history={history}
+                user={this.state.user}
+                userCollections={this.state.userCollections}
               />
             :
             <Redirect to='/login' />

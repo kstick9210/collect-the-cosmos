@@ -1,0 +1,21 @@
+.CollectionCard {
+    width: 180px;
+    border: 1px dashed rgb(51, 90, 140);
+    margin-bottom: 5px;
+}
+
+.CollectionCard-Title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.no-photos {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .CollectionCard {
+        margin: 5px;
+    }
+}

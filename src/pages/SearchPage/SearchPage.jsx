@@ -18,7 +18,7 @@ class SearchPage extends Component {
             formData,
             invalidForm: !this.formRef.current.checkValidity()
         });
-    };
+    }
 
     handleSubmit = e => {
         e.preventDefault();

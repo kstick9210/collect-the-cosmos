@@ -2,7 +2,9 @@ const router = require('express').Router();
 const collectionsCtrl = require('../controllers/collections');
 
 router.use(require('../config/auth'));
+router.get('/', checkAuth, collectionsCtrl.index);
 router.post('/', checkAuth, collectionsCtrl.create);
+router.put('/:id', checkAuth, collectionsCtrl.update);
 
 
 function checkAuth(req, res, next) {

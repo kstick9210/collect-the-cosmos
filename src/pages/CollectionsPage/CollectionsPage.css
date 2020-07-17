@@ -1,0 +1,14 @@
+.CollectionsPage {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .collections-wrapper { 
+        display: flex; 
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}

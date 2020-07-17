@@ -22,8 +22,7 @@ export function create(collection) {
 }
 
 export function update(collection) {
-    console.log('collection in services: ', collection)
-    return fetch(`${BASE_URL}${collection.id}`, {
+    return fetch(`${BASE_URL}${collection._id}`, {
         method: 'PUT',
         headers: {'content-type': 'application/json',
         'Authorization': 'Bearer ' + tokenService.getToken()

@@ -13,13 +13,15 @@ import SearchPage from '../SearchPage/SearchPage';
 import ImageDetailPage from '../ImageDetailPage/ImageDetailPage';
 import CreateCollectionPage from '../CreateCollectionPage/CreateCollectionPage';
 import CollectionsPage from '../CollectionsPage/CollectionsPage';
+import CollectionDetailsPage from '../CollectionDetailsPage/CollectionDetailsPage';
 
 class App extends Component {
   state = {
     user: userService.getUser(),
     searchResults: [],
     photoDetails: '',
-    userCollections: []
+    userCollections: [],
+    selectedCollection: ''
   }
 
   handleLogout = () => {
@@ -60,9 +62,13 @@ class App extends Component {
       collection._id === updatedCollection._id ? updatedCollection : collection
     );
     this.setState(
-      {collections: newCollectionsArray}
-      //() => this.props.history.push('/search')
+      {userCollections: newCollectionsArray},
+      () => this.props.history.push('/collections')
     );
+  }
+
+  handleGetSelectedCollection = (idx) => {
+    this.setState({ selectedCollection: this.state.userCollections[idx]});
   }
 
   async componentDidMount() {
@@ -112,13 +118,23 @@ class App extends Component {
               <Redirect to='/login' />
           }>
           </Route>
-          <Route path='/detail' render={({ history }) =>
+          <Route path='/image/detail' render={({ history }) =>
             userService.getUser() ?
               <ImageDetailPage 
                 history={history}
                 photoDetails={this.state.photoDetails}
                 userCollections={this.state.userCollections}
                 handleAddPhotoToCollection={this.handleAddPhotoToCollection}
+              />
+            :
+              <Redirect to='/login' />
+          }>
+          </Route>
+          <Route path='/collections/detail' render={({ history }) =>
+            userService.getUser() ?
+              <CollectionDetailsPage 
+                history={history}
+                selectedCollection={this.state.selectedCollection}
               />
             :
               <Redirect to='/login' />
@@ -141,6 +157,7 @@ class App extends Component {
                 history={history}
                 user={this.state.user}
                 userCollections={this.state.userCollections}
+                handleGetSelectedCollection={this.handleGetSelectedCollection}
               />
             :
             <Redirect to='/login' />

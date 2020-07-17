@@ -13,7 +13,9 @@ const CollectionsPage = (props) => {
                 {props.userCollections.map((collection, idx) =>
                     <CollectionCard 
                         key={idx}
+                        idx={idx}
                         collection={collection}
+                        handleGetSelectedCollection={props.handleGetSelectedCollection}
                     />
                 )}
             </div>

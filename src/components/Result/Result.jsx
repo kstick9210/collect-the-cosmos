@@ -6,7 +6,7 @@ const Result = (props) => {
     return (
         
             <Link 
-                to={`detail/${props.idx}`} 
+                to={`image/detail/${props.idx}`} 
                 className="Result"
                 onClick={() => props.handleGetPhotoDetails(props.idx)}
             >

@@ -7,9 +7,10 @@ const CollectionCard = (props) => {
         
         
         <Link
-            to='/'
+            to={`collections/detail/${props.idx}`}
             className="CollectionCard"
             style={{ background: `url(${props.collection.photos[0].links[0].href}) center` }}
+            onClick={() => props.handleGetSelectedCollection(props.idx)}
         >
             <p className="CollectionCard-Title">{props.collection.name}</p>
         </Link>

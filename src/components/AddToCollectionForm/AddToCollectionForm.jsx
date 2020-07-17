@@ -5,7 +5,7 @@ class AddToCollectionForm extends Component {
     state = {
         formData: {
             photos: this.props.photoDetails,
-            id: ''
+            _id: ''
         }
     }
 
@@ -28,7 +28,7 @@ class AddToCollectionForm extends Component {
                     className="add-form"
                     onSubmit={this.handleSubmit}
                 >
-                    <select name="id" onChange={this.handleChange} >
+                    <select name="_id" onChange={this.handleChange} >
                         <option value='Please Select' default>Please Select</option>
                         {this.props.userCollections.map((collection, idx) =>
                             <option 

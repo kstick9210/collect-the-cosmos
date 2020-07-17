@@ -21,7 +21,6 @@ function create(req, res) {
 
 function update(req, res) {
     Collection.findById(req.params.id, function(err, collection) {
-        console.log("req.body.photos in controllers", req.body.photos)
         req.body.photos = [...collection.photos, req.body.photos]
         Collection.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(collection => {res.json(collection)})

@@ -5,6 +5,7 @@ router.use(require('../config/auth'));
 router.get('/', checkAuth, collectionsCtrl.index);
 router.post('/', checkAuth, collectionsCtrl.create);
 router.put('/:id', checkAuth, collectionsCtrl.update);
+router.delete('/:id', checkAuth, collectionsCtrl.delete);
 
 
 function checkAuth(req, res, next) {

@@ -71,6 +71,18 @@ class App extends Component {
     this.setState({ selectedCollection: this.state.userCollections[idx]});
   }
 
+  handleDeleteFromCollection = async id => {
+    await CollectionsAPI.deletePhoto(id);
+    this.handleGetUserCollections(this.state.user);
+  }
+
+  handleDeleteCollection = async id => {
+    await CollectionsAPI.deleteCollection(id);
+    this.setState(state => ({
+      userCollections: state.userCollections.filter(collection => collection._id !== id)
+    }), () => this.props.history.push('/collections'));
+  }
+
   async componentDidMount() {
     // retrieve user's collections and set state if user is already authenticated when page loads
     if (userService.getUser()) {
@@ -135,6 +147,7 @@ class App extends Component {
               <CollectionDetailsPage 
                 history={history}
                 selectedCollection={this.state.selectedCollection}
+                handleDeleteCollection={this.handleDeleteCollection}
               />
             :
               <Redirect to='/login' />

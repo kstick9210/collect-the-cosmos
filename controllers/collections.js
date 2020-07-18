@@ -3,7 +3,8 @@ const Collection = require('../models/collection');
 module.exports = {
     index,
     create,
-    update
+    update,
+    delete: deleteCollection
 }
 
 function index(req, res) {
@@ -26,4 +27,10 @@ function update(req, res) {
         .then(collection => {res.json(collection)})
         .catch(err => {res.json(err)})
     })
+}
+
+function deleteCollection(req, res) {
+    Collection.findByIdAndDelete(req.params.id)
+    .then(collection => {res.json(collection)})
+    .catch(err => {res.json(err)})
 }

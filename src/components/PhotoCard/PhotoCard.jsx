@@ -12,6 +12,12 @@ const PhotoCard = (props) => {
             <div className="PhotoCard-Details">
                 <h3>{props.photo.data[0].title}</h3>
                 <p className="PhotoCard-Description">{props.photo.data[0].description}</p>
+                {/* <p
+                    className="delete"
+                    onClick={props.handleDeleteFromCollection}
+                >
+                    Delete Photo from Collection
+                </p> */}
             </div>
         </div>
     )

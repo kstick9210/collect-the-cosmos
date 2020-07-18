@@ -1,9 +1,11 @@
 import React from 'react';
-import './CollectionDetailsPage.css';
+import {Link} from 'react-router-dom'
+;import './CollectionDetailsPage.css';
 import PhotoCard from '../../components/PhotoCard/PhotoCard';
 
 const CollectionDetailsPage = ({ selectedCollection, handleDeleteCollection }) => {
-    return (
+    let detailsPage = selectedCollection ?
+
         <div className="CollectionDetails">
             <div className="title-wrapper">
                 <h1 className="CollectionTitle">{selectedCollection.name}</h1>
@@ -21,6 +23,13 @@ const CollectionDetailsPage = ({ selectedCollection, handleDeleteCollection }) =
                 />
             )}
         </div>
+    :
+        <Link to='/collections' className="details-return">Return to View All Collections</Link>
+
+    return (
+        <>
+            {detailsPage}
+        </>
     )
 }
 

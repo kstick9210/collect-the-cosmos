@@ -42,7 +42,6 @@ class App extends Component {
   handleSearch = async formData => {
     const searchResults = await PhotosAPI.search(formData);
     this.setState({ searchResults: [searchResults.collection.items] });
-    // overwriting array rather than merging - only want current search results when a new search is conducted
   }
   
   handleGetPhotoDetails = (idx) => {

@@ -9,6 +9,7 @@ const CollectionsPage = (props) => {
         <div className="CollectionsPage">
             <h2>{props.user.name}'s Collections</h2>
             <Link className="add" to='/collections/new'>Create a New Collection</Link><br></br>
+            <Link className="search" to='/search'>Search for Photos to Add to a Collection</Link><br></br>
             <div className="collections-wrapper"> 
                 {props.userCollections.map((collection, idx) =>
                     <CollectionCard 

@@ -11,6 +11,14 @@
     border: 3px solid rgb(25, 73, 135);
 }
 
+.search {
+    background-color: rgb(171, 168, 157);
+    color: rgb(25, 73, 135);
+    font-weight: 900;
+    padding: 0 4px;
+    border: 3px solid rgb(25, 73, 135);
+}
+
 @media only screen and (min-width: 768px) {
     .collections-wrapper { 
         display: flex; 

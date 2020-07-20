@@ -16,57 +16,64 @@
     border: 5px solid rgba(145, 145, 145, 0.3);
     position: absolute;
     left: -26vw;
-    -webkit-animation: fade-in-out 84s infinite;
-    -moz-animation:    fade-in-out 84s infinite;
-    -o-animation:      fade-in-out 84s infinite;
-    animation:         fade-in-out 84s infinite;
+    -webkit-animation: fade-in-out 70s infinite;
+    -moz-animation:    fade-in-out 70s infinite;
+    -o-animation:      fade-in-out 70s infinite;
+    animation:         fade-in-out 70s infinite;
 }
 
 
 .landing-images-wrapper img:nth-of-type(1) {
-    animation-delay: 0s;
-}
-
-.landing-images-wrapper img:nth-of-type(2) {
-    animation-delay: 12s;
-}
-
-.landing-images-wrapper img:nth-of-type(3) {
-    animation-delay: 24s;
-}
-
-.landing-images-wrapper img:nth-of-type(4) {
-    animation-delay: 36s;
-}
-
-.landing-images-wrapper img:nth-of-type(5) {
-    animation-delay: 48s;
-}
-
-.landing-images-wrapper img:nth-of-type(6) {
     animation-delay: 60s;
 }
 
+.landing-images-wrapper img:nth-of-type(2) {
+    animation-delay: 50s;
+}
+
+.landing-images-wrapper img:nth-of-type(3) {
+    animation-delay: 40s;
+}
+
+.landing-images-wrapper img:nth-of-type(4) {
+    animation-delay: 30s;
+}
+
+.landing-images-wrapper img:nth-of-type(5) {
+    animation-delay: 20s;
+}
+
+.landing-images-wrapper img:nth-of-type(6) {
+    animation-delay: 10s;
+}
+
 .landing-images-wrapper img:nth-of-type(7) {
-    animation-delay: 72s;
+    animation-delay: 0s;
 }
 
 @-webkit-keyframes fade-in-out {
     0%, 11%, 100%   { opacity: 1; }
-    14%, 97% { opacity: 0; }
+    14%, 71% { opacity: 0; }
 }
 
 @-moz-keyframes fade-in-out {
     0%, 11%, 100%   { opacity: 1; }
-    14%, 97% { opacity: 0; }
+    14%, 71% { opacity: 0; }
 }
 
 @-o-keyframes fade-in-out {
     0%, 11%, 100%   { opacity: 1; }
-    14%, 97% { opacity: 0; }
+    14%, 71% { opacity: 0; }
 }
 
 @keyframes fade-in-out {
     0%, 11%, 100%   { opacity: 1; }
-    14%, 97% { opacity: 0; }
+    14%, 71% { opacity: 0; }
+}
+
+@media only screen and (min-width: 768px) {
+    .landing-image {
+        max-width: 25vw;
+        left: -13vw;
+    }
 }

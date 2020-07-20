@@ -97,7 +97,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
         />
         <main className="App-main">
-          <Route exact path='/' render={({ history}) =>
+          <Route exact path='/' render={() =>
             <LandingPage 
               user={this.state.user}
             />

@@ -65,7 +65,7 @@ class App extends Component {
   }
   
   handleGetPhotoDetails = (idx) => {
-    this.setState({ photoDetails: this.state.searchResults[0][idx]});
+    this.setState({ photoDetails: this.state.currentResults[0][idx]});
   }
   
   handleCreateCollection = async newCollectionData => {

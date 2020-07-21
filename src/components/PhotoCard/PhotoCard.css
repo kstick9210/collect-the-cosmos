@@ -36,11 +36,20 @@
         margin-left: 30px;
     }
     
-    .PhotoCard-Image { max-width: 32vw; }
+    .PhotoCard-Image { 
+        max-width: 40vw;
+        align-self: flex-start;
+    }
     
     .PhotoCard-Details { 
         margin: 0 20px;
-        max-width: 40vw;
+        width: 45vw;
         border-bottom: none;
     }
+}
+
+@media only screen and (min-width: 1200px) {
+    .PhotoCard-Image { max-width: 20vw; }
+
+    .PhotoCard-Details { width: 60vw; }
 }

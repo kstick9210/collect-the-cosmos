@@ -1,6 +1,9 @@
 # Collect the Cosmos
 
--- Screenshots Placeholder --
+![Landing Page](./public/assets/screenshots/landing-page.png)
+![Search](./public/assets/screenshots/search.png)
+![User Page](./public/assets/screenshots/user-page.png)
+![Collection](./public/assets/screenshots/collection.png)
 
 # Technologies Used
 - MongoDB/Mongoose

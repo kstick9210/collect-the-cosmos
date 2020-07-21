@@ -5,7 +5,7 @@ const PhotoCard = (props) => {
     return (
         <div className="PhotoCard">
             <img
-                className="PhotoCard-Image"
+                className="PhotoCard-Image" 
                 src={props.photo.links[0].href}
                 alt={props.photo.data[0].title}
             ></img>

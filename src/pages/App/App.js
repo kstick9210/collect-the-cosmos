@@ -19,9 +19,13 @@ class App extends Component {
   state = {
     user: userService.getUser(),
     searchResults: [],
+    currentResults: [],
     photoDetails: '',
     userCollections: [],
-    selectedCollection: ''
+    selectedCollection: '',
+    currentPage: 1,
+    perPage: 10,
+    pageCount: 0
   }
 
   handleLogout = () => {
@@ -40,8 +44,24 @@ class App extends Component {
   }
   
   handleSearch = async formData => {
-    const searchResults = await PhotosAPI.search(formData);
-    this.setState({ searchResults: [searchResults.collection.items] });
+    const allResults = await PhotosAPI.search(formData);
+    const searchResults = allResults.collection.items;
+    const currentResults = searchResults.slice(0, this.state.perPage)
+    const pageCount = Math.ceil(searchResults.length / this.state.perPage);
+    this.setState({ 
+      searchResults: [searchResults],
+      currentResults: [currentResults],
+      pageCount: pageCount
+    });
+  }
+
+  handleSearchPageUpdate = (selectedPage) => {
+    const offset = selectedPage * this.state.perPage;
+    const currentResults = this.state.searchResults[0].slice(offset, (offset + this.state.perPage))
+    this.setState({
+      currentPage: selectedPage,
+      currentResults: [currentResults]
+    });
   }
   
   handleGetPhotoDetails = (idx) => {
@@ -123,7 +143,10 @@ class App extends Component {
                 history={history}
                 handleSearch={this.handleSearch}
                 handleGetPhotoDetails={this.handleGetPhotoDetails}
-                searchResults={this.state.searchResults}
+                currentResults={this.state.currentResults}
+                pageCount={this.state.pageCount}
+                perPage={this.state.perPage}
+                handleSearchPageUpdate={this.handleSearchPageUpdate}
               />
             :
               <Redirect to='/login' />

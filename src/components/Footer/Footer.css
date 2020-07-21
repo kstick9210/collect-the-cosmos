@@ -1,4 +1,7 @@
 footer {
+    background-image: url("../../images/Nasty\ Nebula\ Hubble.jpg");
+    background-size: cover;
+    background-position: top;
     border-top: 1px gray dashed;
     display: flex;
     color: white;

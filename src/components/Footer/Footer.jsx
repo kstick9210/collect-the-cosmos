@@ -4,7 +4,6 @@ import './Footer.css';
 function Footer() {
     return (
         <footer>
-            
             <p>
                Created by Kathleen Stickel<br></br>
                <a href="https://github.com/kstick9210/collect-the-cosmos" target="_blank" rel="noopener noreferrer">

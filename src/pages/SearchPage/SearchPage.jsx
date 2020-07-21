@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './SearchPage.css';
 import SearchResults from '../../components/SearchResults/SearchResults';
+import ReactPaginate from 'react-paginate';
 
 class SearchPage extends Component {
     state = {
@@ -23,6 +24,11 @@ class SearchPage extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.handleSearch(this.state.formData);
+    }
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        this.props.handleSearchPageUpdate(selectedPage);
     }
 
     render() {
@@ -50,12 +56,27 @@ class SearchPage extends Component {
                         Search
                     </button>
                 </form><br></br>
-                {this.props.searchResults.length ? 
-                    <SearchResults 
-                        handleGetPhotoDetails={this.props.handleGetPhotoDetails}
-                        query={this.state.formData.query}
-                        searchResults={this.props.searchResults[0]}
-                    />
+                {this.props.currentResults.length ? 
+                    <>
+                        <SearchResults 
+                            handleGetPhotoDetails={this.props.handleGetPhotoDetails}
+                            query={this.state.formData.query}
+                            currentResults={this.props.currentResults[0]}
+                        />
+                        <ReactPaginate
+                            previousLabel={"<"}
+                            nextLabel={">"}
+                            breakLabel={"..."}
+                            breakClassName={"break-me"}
+                            pageCount={this.props.pageCount}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={2}
+                            onPageChange={this.handlePageClick}
+                            containerClassName={"pagination"}
+                            subContainerClassName={"pages pagination"}
+                            activeClassName={"active"}
+                        />
+                    </>
                     :
                     <h4 className="search-suggest">Try searching for "nebula"</h4>
                 }

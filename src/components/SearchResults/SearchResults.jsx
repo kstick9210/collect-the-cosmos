@@ -7,7 +7,7 @@ const SearchResults = (props) => {
         <>
             {/* <h4>Results for "{props.query}"</h4> */} 
             <div className="SearchResults">
-                {props.searchResults.map((result, idx) =>
+                {props.currentResults.map((result, idx) =>
                     <Result 
                         key={idx} 
                         result={result}

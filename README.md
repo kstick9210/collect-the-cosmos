@@ -1,7 +1,7 @@
 # Collect the Cosmos
 Marvel at the universe from the comfort of your home.
 
-Collect the Cosmos is an application that allows users to search for and create collections of photos of stars, planets, and other extraodrinary objects in the unvierse.
+Collect the Cosmos is an application that allows users to search for and create collections of photos of stars, planets, and other extraordinary objects in the universe.
 
 ![Landing Page](./public/assets/screenshots/landing-page.png)
 ![Search](./public/assets/screenshots/search.png)

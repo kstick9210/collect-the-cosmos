@@ -90,11 +90,6 @@ class App extends Component {
     this.setState({ selectedCollection: this.state.userCollections[idx]});
   }
 
-  handleDeleteFromCollection = async id => {
-    await CollectionsAPI.deletePhoto(id);
-    this.handleGetUserCollections(this.state.user);
-  }
-
   handleDeleteCollection = async id => {
     await CollectionsAPI.deleteCollection(id);
     this.setState(state => ({
@@ -103,7 +98,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    // retrieve user's collections and set state if user is already authenticated when page loads
+    // retrieve user's collections and set state if user is already authenticated (thanks to tokens) when page loads
     if (userService.getUser()) {
       this.handleGetUserCollections(this.state.user);
     }

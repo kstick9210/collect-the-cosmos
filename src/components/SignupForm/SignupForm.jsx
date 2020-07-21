@@ -15,7 +15,6 @@ class SignupForm extends Component {
   handleChange = (e) => {
     this.props.updateMessage('');
     this.setState({
-      // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
     });
   }
@@ -27,7 +26,6 @@ class SignupForm extends Component {
       this.props.handleSignupOrLogin();
       this.props.history.push('/');
     } catch (err) {
-      // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
     }
   }
@@ -40,21 +38,21 @@ class SignupForm extends Component {
     return (
       <div className="SignupForm">
         <h2>Sign Up</h2>
-        <form className="" autoComplete="off" onSubmit={this.handleSubmit} >
-          <div className="row">
-            <input type="text" autoComplete="off" className="active" id="name" value={this.state.name} name="name" onChange={this.handleChange} />
+        <form autoComplete="off" onSubmit={this.handleSubmit} >
+          <div>
+            <input type="text" autoComplete="off" className="active" value={this.state.name} name="name" onChange={this.handleChange} />
             <label htmlFor="name">Name</label>
           </div>
-          <div className="row">
-            <input type="text" autoComplete="off" className="active" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
+          <div>
+            <input type="text" autoComplete="off" className="active" value={this.state.email} name="email" onChange={this.handleChange} />
             <label htmlFor="email">Email</label>
           </div>
-          <div className="row">
-            <input type="password" autoComplete="off" className="active" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
+          <div>
+            <input type="password" autoComplete="off" className="active" value={this.state.password} name="password" onChange={this.handleChange} />
             <label htmlFor="password">Password</label>
           </div>
-          <div className="row">
-            <input type="password" autoComplete="off" className="active" id="confirm" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+          <div>
+            <input type="password" autoComplete="off" className="active" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             <label htmlFor="confirm">Confirm Password</label>
           </div>
           <div className="buttons">

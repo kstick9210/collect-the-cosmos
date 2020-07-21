@@ -15,7 +15,6 @@ const Result = (props) => {
                     className="Result-thumb"
                     alt={props.result.data[0].title}
                 ></img>
-                {/* <p className="Result-title">{props.result.data[0].title}</p> */}
             </Link>
         
     )

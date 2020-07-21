@@ -13,18 +13,6 @@
     transform: scale(1.5);
 }
 
-.Result-title {
-    /* display: none; */
-    font-family: 'Nunito', sans-serif;
-    position: absolute;
-    width: 200px;
-    font-size: 15px;
-    z-index: 1;
-    margin-top: -25px;
-    margin-left: 20px;
-    background-color: rgba(145, 145, 145, 0.3);
-}
-
 @media only screen and (min-width: 768px) {
     .Result-thumb, .Result-title { width: 150px; }
 

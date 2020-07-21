@@ -32,10 +32,6 @@ export function update(collection) {
     .then(res => res.json());
 }
 
-export function deletePhoto() {
-
-}
-
 export function deleteCollection(id) {
     return fetch(`${BASE_URL}${id}`, {
         method: 'DELETE',

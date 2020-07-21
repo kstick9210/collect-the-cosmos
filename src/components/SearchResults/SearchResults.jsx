@@ -5,7 +5,6 @@ import Result from '../../components/Result/Result';
 const SearchResults = (props) => {
     return (
         <>
-            {/* <h4>Results for "{props.query}"</h4> */} 
             <div className="SearchResults">
                 {props.currentResults.map((result, idx) =>
                     <Result 

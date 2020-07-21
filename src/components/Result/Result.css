@@ -4,7 +4,9 @@
 
 .Result-thumb {
     width: 200px;
+    max-height: 220px;
     align-self: baseline;
+    transition: transform .5s ease;
 }
 
 .Result-thumb:hover {
